@@ -16,10 +16,14 @@ const messageEl = document.querySelector('#message')
 /*----------------------------- Event Listeners -----------------------------*/
 cards.forEach((card) => card.addEventListener('click', handleClick))
 
-
+messageEl.addEventListener
 /*-------------------------------- Functions --------------------------------*/
 function handleClick(evt){
+
 }
 if (!hasFlippedCard) {
     hasFlippedCard = true;
   }
+
+
+  resetBtn.addEventListener('click', init)
