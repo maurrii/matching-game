@@ -30,3 +30,6 @@ img{
   height: 100px;
   width: 80px;
 }
+.cards:hover{
+  border: 1px solid yellow;
+}
