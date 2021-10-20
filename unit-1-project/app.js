@@ -3,7 +3,48 @@ const matchCombos = [
   [0, 7], [1, 6], [2, 5], [3,8]
 ]
 
-const playerArray = []
+const cardArray = [
+	{
+		name: 'blue',
+		img: 'images/blue star.png',
+		status: hidden,
+	},
+	{
+		name: 'blue',
+		img: 'images/blue star.png',
+		status: hidden,
+	},
+	{
+		name: 'pink',
+		img: 'images/pink star.png',
+    status:hidden,
+	},
+	{
+		name: 'pink',
+		img: 'images/pink star.png',
+    status:hidden,
+	},
+	{
+		name: 'silver',
+		img: 'images/silver star.png',
+    status:hidden,
+	},
+	{
+		name: 'silver',
+		img: 'images/silver star.png',
+    status:hidden,
+	},
+	{
+		name: 'red',
+		img: 'images/red star.png',
+    status:hidden,
+	},
+	{
+		name: 'red',
+		img: 'images/red star.png',
+    status:hidden,
+	},
+]
 /*---------------------------- Variables (state) ----------------------------*/
 let hasFlippedCard = false;
 let firstCard, secondCard;
@@ -20,13 +61,13 @@ cards.forEach((card) => card.addEventListener('click', handleClick))
 messageEl.addEventListener
 /*-------------------------------- Functions --------------------------------*/
 function handleClick(evt){
-  console.log(evt) 
   let backCard = evt.target
   let frontCard = evt.srcElement.nextElementSibling
   backCard.style.display = "none"
 frontCard.style.display = "block"
 
 
+}
 // if (!hasFlippedCard) {
 //     hasFlippedCard = true
 //     firstCard = this
@@ -34,7 +75,7 @@ frontCard.style.display = "block"
 //     hasFlippedCard = false
 //     secondCard = this
 //   }
-//   if (firstCard.handleClick === secondCard.handleClick) {
+//   if (firstCard === true && secondCard === true) {
 //     firstCard.removeEventListener("click", handleClick)
 //     secondCard.removeEventListener('click', handleClick)
 //   } else {
@@ -42,6 +83,6 @@ frontCard.style.display = "block"
 //       firstCard.classList.remove('flip')
 //     },1500)
 //   }
-}
+
 
   resetBtn.addEventListener('click', handleClick)
