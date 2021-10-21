@@ -107,10 +107,10 @@ cards.forEach((card) => card.addEventListener('click', handleClick))
             let frontCard = evt.srcElement.nextElementSibling
             backCard.style.display = "none"
             frontCard.style.display = "block"
-            firstCard
-            firstPick = false
+            // firstCard
+            // firstPick = false
             }
-            console.log(cardArray)
+            // console.log(cardArray)
             // } else {
             //   let backCard = evt.target
 						// 	let frontCard = evt.srcElement.nextElementSibling
