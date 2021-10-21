@@ -7,43 +7,47 @@ const cardArray = [
 	{
 		name: 'pink',
 		img: 'images/pink star.png',
+		status: 'hidden',
 	},
 	{
 		name: 'silver',
 		img: 'images/silver star.png',
+		status: 'hidden',
 	},
-  {	name: 'red',
-		img: 'images/red star.png',
-	},
+	{ name: 'red', img: 'images/red star.png', status: 'hidden' },
 	{
 		name: 'blue',
 		img: 'images/blue star.png',
+		status: 'hidden',
 	},
-  {
+	{
 		name: 'red',
 		img: 'images/red star.png',
+		status: 'hidden',
 	},
-  {
+	{
 		name: 'silver',
 		img: 'images/silver star.png',
+		status: 'hidden',
 	},
-  {
+	{
 		name: 'pink',
 		img: 'images/pink star.png',
+		status: 'hidden',
 	},
 	{
 		name: 'blue',
 		img: 'images/blue star.png',
-	},	
+		status: 'hidden',
+	},
 ]
 /*---------------------------- Variables (state) ----------------------------*/
-let hasFlipped2ndCard = true;
-let hasFlippedCard = false;
+let firstPick = true
 let firstCard, secondCard;
-
 let cardsChosen = []
+let winner = false
+let matches = null
 
-let checkForMatch = []
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -62,24 +66,62 @@ cards.forEach((card) => card.addEventListener('click', handleClick))
 
 // messageEl.addEventListener()
 /*-------------------------------- Functions --------------------------------*/
-
-
-
-
-
-
-
-
-// flips a card
-function handleClick(evt){
-  let backCard = evt.target
-  let frontCard = evt.srcElement.nextElementSibling
-  backCard.style.display = "none"
-frontCard.style.display = "block"
-cardsChosen.push()
-// cardsChosen.push(cardArray.name)
-// cardsChosen.push(cardArray)
-// if (cardsChosen.length === 1){
+// find match
+// did not find match at all
+// function foundmatch1(cardArray){
+  // return cardArray.name === ['pink']
+  // }
+  // console.log(cardArray.find(foundmatch1))
+  
+  
+  // only found one card named pink
+  // const found1match = cardArray.find (({name})=> name === 'pink',)
+  // console.log(found1match)
+  
+  // could not understand el
+  // function found1match(arr, query) {
+    // 	return arr.filter(function (el) {
+      // 		return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      // 	})
+      // }
+      // console.log(found1match(cardArray, 'pink'))
+      
+      
+      
+      
+      // el is still not a function
+      // const found1match = (arr, query) => {
+        // 	return arr.filter(
+          // 		(el) => el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          // 	)
+          // }
+          // console.log(found1match(cardArray, 'pink'))  
+          
+          
+          
+          
+          // flips a card
+          function handleClick(evt){
+            if (firstPick) {
+            let backCard = evt.target
+            let frontCard = evt.srcElement.nextElementSibling
+            backCard.style.display = "none"
+            frontCard.style.display = "block"
+            firstCard
+            firstPick = false
+            }
+            console.log(cardArray)
+            // } else {
+            //   let backCard = evt.target
+						// 	let frontCard = evt.srcElement.nextElementSibling
+            //   backCard.style.display = 'none'
+						// 	frontCard.style.display = 'block'
+            //   firstPick = true
+            // }
+            
+            // cardsChosen.push(cardArray.name)
+            // cardsChosen.push(cardArray)
+            // if (cardsChosen.length === 1){
 //   setTimeout(checkForMatch, 500)
 // }
 }
