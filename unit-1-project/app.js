@@ -70,7 +70,7 @@ cards.forEach((card) => card.addEventListener('click', handleClick))
 // messageEl.addEventListener()
 /*-------------------------------- Functions --------------------------------*/
   // flips a card
-    
+    let setsMatched = 0;
     function handleClick(evt){
       if (!firstPick) { 
         firstPick = evt.target
@@ -83,14 +83,21 @@ cards.forEach((card) => card.addEventListener('click', handleClick))
         backCard.style.display = 'none'
 				frontCard.style.display = 'block'
 
+        //checks for a match
       if(secondPick?.alt) {
           if (firstPick?.alt !== secondPick?.alt) {
           setTimeout(() => {
             resetBoard()
           }, 600);
-        }else{
-          resetBtn.style.display = "block"
-        }
+        } else if (firstPick?.alt === secondPick?.alt) {
+					setsMatched = ++setsMatched
+          firstPick = null
+          secondPick = null
+				}
+      }
+
+      if (setsMatched == 4) {
+        resetBtn.style.display = 'block'
       }
     }
 function resetBoard() {
@@ -100,6 +107,7 @@ function resetBoard() {
 	;[...document.getElementsByClassName('front')].forEach((element) => {
 		element.style.display = 'none'
 	})
+  setsMatched = 0;
 	firstPick = null
 	secondPick = null
 	resetBtn.style.display = 'none'
