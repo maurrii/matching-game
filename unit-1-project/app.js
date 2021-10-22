@@ -42,7 +42,8 @@ const cardArray = [
 	},
 ]
 /*---------------------------- Variables (state) ----------------------------*/
-let firstPick = true
+let firstPick
+let secondPick
 let firstCard, secondCard;
 let cardsChosen = []
 let winner = false
@@ -67,16 +68,49 @@ cards.forEach((card) => card.addEventListener('click', handleClick))
 // messageEl.addEventListener()
 /*-------------------------------- Functions --------------------------------*/
   // flips a card
+
     function handleClick(evt){
-      if (firstPick) {
-      let backCard = evt.target
-      let frontCard = evt.srcElement.nextElementSibling
-      backCard.style.display = "none"
-      frontCard.style.display = "block"
-      // firstCard
-      // firstPick = false
+      if (!firstPick) { 
+        firstPick = evt.target
+      } else {
+        secondPick = evt.target
       }
-      // console.log(cardArray)
+      console.warn(firstPick, secondPick)
+
+        let backCard = evt.target
+        let frontCard = evt.srcElement.nextElementSibling
+        backCard.style.display = 'none'
+				frontCard.style.display = 'block'
+
+      if(secondPick?.alt) {
+          if (firstPick?.alt != secondPick?.alt) {
+          console.warn('is not same')
+          backCards = document.getElementsByClassName('back')
+          console.warn(backCards)
+          backCards.forEach(element => {
+            console.warn(element)
+          });
+            // cards.forEach((card) => {
+            //   console.warn(card)
+            //   card.target.style.display = 'none'
+            //   card.srcElement.nextElementSibling.style.display = 'block'
+            // })
+        } else {
+          console.warn('same')
+          // backCard.style.display = 'none'
+          // frontCard.style.display = 'block'
+        }      
+      }
+
+
+
+      // if (firstPick) {
+      //   let backCard = evt.target
+      //   let frontCard = evt.srcElement.nextElementSibling
+      //   backCard.style.display = "none"
+      //   frontCard.style.display = "block"
+      //   firstCard
+      //   firstPick = false
       // } else {
       //   let backCard = evt.target
 			// 	let frontCard = evt.srcElement.nextElementSibling
