@@ -7,7 +7,7 @@ The game I selected to create is a memory game called easy match. I picked this 
 Its a Easy game or so they say... flip two cards thats a match to win the game... If you can remember where its at that is!!
 
 ***CLICK TO PLAY***
-[here]("https://ahmauri-memory-game.surge.sh")
+[here](https://ahmauri-memory-game.surge.sh)
 ***CLICK TO PLAY***
 
 Here is my layout of Easy Match!
