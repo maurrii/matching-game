@@ -14,7 +14,9 @@ const cardArray = [
 		img: 'images/silver star.png',
 		status: 'hidden',
 	},
-	{ name: 'red', img: 'images/red star.png', status: 'hidden' },
+	{ name: 'red', 
+    img: 'images/red star.png', 
+    status: 'hidden' },
 	{
 		name: 'blue',
 		img: 'images/blue star.png',
@@ -68,61 +70,39 @@ cards.forEach((card) => card.addEventListener('click', handleClick))
 // messageEl.addEventListener()
 /*-------------------------------- Functions --------------------------------*/
   // flips a card
-
+    
     function handleClick(evt){
       if (!firstPick) { 
         firstPick = evt.target
       } else {
         secondPick = evt.target
       }
-      console.warn(firstPick, secondPick)
 
-        let backCard = evt.target
-        let frontCard = evt.srcElement.nextElementSibling
+        const backCard = evt.target
+        const frontCard = evt.srcElement.nextElementSibling
         backCard.style.display = 'none'
 				frontCard.style.display = 'block'
 
       if(secondPick?.alt) {
-          if (firstPick?.alt != secondPick?.alt) {
-          console.warn('is not same')
-          backCards = document.getElementsByClassName('back')
-          console.warn(backCards)
-          backCards.forEach(element => {
-            console.warn(element)
-          });
-            // cards.forEach((card) => {
-            //   console.warn(card)
-            //   card.target.style.display = 'none'
-            //   card.srcElement.nextElementSibling.style.display = 'block'
-            // })
-        } else {
-          console.warn('same')
-          // backCard.style.display = 'none'
-          // frontCard.style.display = 'block'
-        }      
+          if (firstPick?.alt !== secondPick?.alt) {
+          setTimeout(() => {
+            resetBoard()
+          }, 600);
+        }else{
+          resetBtn.style.display = "block"
+        }
       }
-
-
-
-      // if (firstPick) {
-      //   let backCard = evt.target
-      //   let frontCard = evt.srcElement.nextElementSibling
-      //   backCard.style.display = "none"
-      //   frontCard.style.display = "block"
-      //   firstCard
-      //   firstPick = false
-      // } else {
-      //   let backCard = evt.target
-			// 	let frontCard = evt.srcElement.nextElementSibling
-      //   backCard.style.display = 'none'
-			// 	frontCard.style.display = 'block'
-      //   firstPick = true
-      // }
-      
-     // cardsChosen.push(cardArray.name)
-     // cardsChosen.push(cardArray)
-    // if (cardsChosen.length === 1){
-//   setTimeout(checkForMatch, 500)
-// }
+    }
+function resetBoard() {
+	;[...document.getElementsByClassName('back')].forEach((element) => {
+		element.style.display = 'block'
+	})
+	;[...document.getElementsByClassName('front')].forEach((element) => {
+		element.style.display = 'none'
+	})
+	firstPick = null
+	secondPick = null
+	resetBtn.style.display = 'none'
 }
-resetBtn.addEventListener('click', handleClick)
+
+resetBtn.addEventListener('click', resetBoard)

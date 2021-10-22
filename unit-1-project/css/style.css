@@ -21,10 +21,10 @@ div{
 }
 section.memory-game{
   display: grid;
-  grid-template-rows: repeat(3, 10vmin);
-  grid-template-columns: repeat(3, 10vmin);
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, auto);
   grid-gap:18vmin;
-  margin-left: 200px;
+  justify-content: center;
 }
 img{
   height: 100px;
@@ -37,6 +37,10 @@ img{
 div#card4{
   height: 100px;
   width: 80px;
+}
+
+.resetBtn{
+  font-size: x-large;
 }
 
 html {
