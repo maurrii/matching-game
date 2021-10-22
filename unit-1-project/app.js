@@ -67,41 +67,41 @@ const frontCard = document.querySelectorAll(".front")
 /*----------------------------- Event Listeners -----------------------------*/
 cards.forEach((card) => card.addEventListener('click', handleClick))
 
-// messageEl.addEventListener()
 /*-------------------------------- Functions --------------------------------*/
-  // flips a card
-    let setsMatched = 0;
-    function handleClick(evt){
-      if (!firstPick) { 
-        firstPick = evt.target
-      } else {
-        secondPick = evt.target
-      }
+let setsMatched = 0;
+function handleClick(evt){
+  if (!firstPick) { 
+    firstPick = evt.target
+  } else {
+    secondPick = evt.target
+  }
 
-        const backCard = evt.target
-        const frontCard = evt.srcElement.nextElementSibling
-        backCard.style.display = 'none'
-				frontCard.style.display = 'block'
+  const backCard = evt.target
+  const frontCard = evt.srcElement.nextElementSibling
+  backCard.style.display = 'none'
+	frontCard.style.display = 'block'
 
-        //checks for a match
-      if(secondPick?.alt) {
-          if (firstPick?.alt !== secondPick?.alt) {
-          setTimeout(() => {
-            resetBoard()
-          }, 600);
-        } else if (firstPick?.alt === secondPick?.alt) {
-					setsMatched = ++setsMatched
-          firstPick = null
-          secondPick = null
-				}
-      }
-
-      if (setsMatched == 4) {
-        resetBtn.style.display = 'block'
-      }
+  if(secondPick?.alt) {
+    if (firstPick?.alt !== secondPick?.alt) {
+      setTimeout(() => {
+        resetBoard()
+      }, 600); messageEl.innerHTML = "Try again"
+    } else if (firstPick?.alt === secondPick?.alt)
+    messageEl.innerHTML = "You've found a match"; {
+			setsMatched = ++setsMatched
+      firstPick = null
+      secondPick = null
     }
+  }
+
+  if (setsMatched == 4) {
+    resetBtn.style.display = 'block'
+    messageEl.innerHTML = 'Game Won!'
+  }
+}
+
 function resetBoard() {
-	;[...document.getElementsByClassName('back')].forEach((element) => {
+	[...document.getElementsByClassName('back')].forEach((element) => {
 		element.style.display = 'block'
 	})
 	;[...document.getElementsByClassName('front')].forEach((element) => {
